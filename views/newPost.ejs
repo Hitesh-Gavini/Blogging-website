@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs") %>
+
+
+<form action="/" method="POST">
+
+<div class="form-group mx-5 my-3">
+    <label for="exampleFormControlTextarea1">Post Title</label>
+    <% if(locals.tempTitle){ %>
+        <textarea name="postTitle" class="form-control" id="exampleFormControlTextarea1" rows="1"><%=tempTitle%></textarea>
+        <% }else{ %>
+    <textarea name="postTitle" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+    <% } %>
+  </div>
+
+<div class="form-group px-5 my-3">
+    <label for="exampleFormControlTextarea1">Body</label>
+    <% if(locals.tempBody){ %>
+        <textarea name="postBody" class="form-control" id="exampleFormControlTextarea1" rows="5"><%=tempBody%></textarea>
+        <% }else{ %>
+    <textarea name="postBody" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+    <% } %>
+  </div>
+  <div class="form-group px-5 my-3">
+    <input type="submit" value="Save Post" class="btn btn-warning float-end">
+  <a href="/" class="btn btn-outline-secondary float-end me-3">Cancel</a>
+</div>
+</form>

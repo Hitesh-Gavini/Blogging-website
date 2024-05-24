@@ -1,0 +1,32 @@
+<%- include("partials/header.ejs") %>
+
+<% if(locals.searchKey) {%>
+    <h1><%= searchKey %></h1>
+    <% } %>
+
+
+<% if(locals.count) {%>
+    <% for(var i=0;i<titles.length;i++) {%>
+    <main class="container">
+        <div class="bg-body-tertiary p-4 mt-5 rounded" bis_skin_checked="1">
+          <h2><%= titles[i] %></h2>
+          <p class="lead"><%= bodies[i] %></p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center px-1" bis_skin_checked="1">
+            
+            <small class="text-body-secondary">Posted on <%= dates[i] %></small>
+            <div class="btn-group" bis_skin_checked="1">
+                <form action="/Edit" method="POST">
+                    <input type="hidden" name="itemIndex" value="<%=i%>">   
+                    <button type="submit" value="ok" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </form>
+                <form action="/deleted" method="POST">
+                <input type="hidden" name="itemIndex" value="<%=i%>">   
+                <button type="submit" value="ok" class="btn btn-sm btn-outline-secondary">Delete</button>
+                </form>
+              </div>
+          </div>
+      </main>
+      <% } %>
+
+<% } %>
